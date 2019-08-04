@@ -14,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <button />
       <ul>
         {myData.map(customer => (
           <p>{customer.name}</p>

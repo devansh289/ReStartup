@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 1000;
+const PORT = 3003;
 
 app.get("/data", (req, res) => {
   const customers = [{ id: 1, name: "John" }, { id: 2, name: "Bill" }];

@@ -15,11 +15,27 @@ app.post("/data", (req, res) => {
       console.error(err);
       return;
     }
-
     const db = client.db("userData");
     const collection = db.collection("userData");
     const addthis = req.body;
     collection.insertOne({ date: addthis });
+    //collection.find().toArray((err, items) => {
+    // res.send(items);
+    //});
+    res.end();
+  });
+});
+
+app.get("/data", (req, res) => {
+  mongo.connect(url, (err, client) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const db = client.db("userData");
+    const collection = db.collection("userData");
+
     collection.find().toArray((err, items) => {
       res.send(items);
     });

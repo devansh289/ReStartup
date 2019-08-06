@@ -19,13 +19,9 @@ app.post("/data", (req, res) => {
     const db = client.db("userData");
     const collection = db.collection("userData");
     const addthis = req.body;
-    console.log(addthis);
-    //var date = new Date();
-    //var current_hour = date.getTime();
-    //collection.insertOne({ hlo: current_hour });
-
+    collection.insertOne({ date: addthis });
     collection.find().toArray((err, items) => {
-      res.json(items);
+      res.send(items);
     });
   });
 });

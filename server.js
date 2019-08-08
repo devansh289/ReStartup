@@ -17,8 +17,12 @@ app.post("/data", (req, res) => {
     }
     const db = client.db("userData");
     const collection = db.collection("userData");
-    const addthis = req.body;
-    collection.insertOne({ date: addthis });
+
+    collection.insertOne({
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image
+    });
     //collection.find().toArray((err, items) => {
     // res.send(items);
     //});
@@ -35,7 +39,6 @@ app.get("/data", (req, res) => {
 
     const db = client.db("userData");
     const collection = db.collection("userData");
-
     collection.find().toArray((err, items) => {
       res.send(items);
     });

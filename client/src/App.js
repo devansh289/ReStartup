@@ -5,7 +5,9 @@ const axios = require("axios");
 
 function App() {
   const [myData, setData] = useState([]);
-  const [search, setSearch] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
   useEffect(() => {
     loadItems();
@@ -19,15 +21,6 @@ function App() {
         console.log(data);
         setData(data);
       });
-
-    /*
-    const data = await fetch(
-      "https://fortnite-public-api.theapinetwork.com/prod09/upcoming/get"
-    );
-    const items = await data.json();
-
-    console.log(items.items);
-    setData(items.items);*/
   };
 
   const handleSubmit = evt => {
@@ -36,60 +29,47 @@ function App() {
     var date = new Date();
     let current_hour = date.getTime();
     axios
-      .post("/data", { date: current_hour })
-      .then(data => console.log("dedeed"));
-  };
-
-  /*const addItem = useCallback(() => {
-    var date = new Date();
-    let current_hour = date.getTime();
-    axios
-      .post("/data", { date: current_hour })
-      .then(data => data.data)
-      .then(data => {
-        setData([{ d: "dd" }, { d: "ee" }]);
-        console.log(data);
-        console.log(myData);
-      });
-  }, []);*/
-
-  /*const addItem = () => {
-    useEffect(() => {}, []);
-
-    useEffect(() => {
-      fetch("/data", {
-        headers: {
-          'Accept': "application/json"
-          'Content-Type' : "application/json"
-        }
+      .post("/data", {
+        title: title,
+        description: description,
+        image: imageURL
       })
-        .then(response => response.json())
-        .then(data => {
-          setData(data);
-        });
-    }, []);
-  };*/
+      .then(data => console.log("Response recieved from server"));
+
+    loadItems();
+  };
 
   return (
     <div className="App">
+      <div>ReStartup</div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        />
+        <input
+          type="url"
+          value={imageURL}
+          onChange={e => setImageURL(e.target.value)}
         />
         <input type="submit" value="submit" />
       </form>
-      {/*myData.map(item => (
-        <p key={item._id}>{item._id}</p>
-      ))}
-      {
-        <ul>
-          {myData.map(customer => (
-            <p>{customer.date}</p>
-          ))}
-        </ul>
-          */}
+      <div class="container">
+        {myData.map(item => (
+          <div key={item._id} className="project">
+            <img src={item.image} className="image" />
+            <p>
+              {item.title} --> {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

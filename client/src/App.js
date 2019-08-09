@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const axios = require("axios");
@@ -26,8 +26,6 @@ function App() {
   const handleSubmit = evt => {
     evt.preventDefault();
     console.log("Submitting Data");
-    var date = new Date();
-    let current_hour = date.getTime();
     axios
       .post("/data", {
         title: title,

@@ -26,6 +26,7 @@ function App() {
   const handleSubmit = evt => {
     evt.preventDefault();
     console.log("Submitting Data");
+
     axios
       .post("/data", {
         title: title,
@@ -58,7 +59,7 @@ function App() {
         />
         <input type="submit" value="submit" />
       </form>
-      <div className="container">
+      <div class="container">
         {myData.map(item => (
           <div key={item._id} className="project">
             <img src={item.image} className="image" alt="" />

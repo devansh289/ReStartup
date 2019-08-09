@@ -8,7 +8,7 @@
   margin: auto;
   display: grid;
   justify-content: space-evenly;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 0.4fr));
   grid-auto-rows: 100px;
   grid-gap: 40px;
 }

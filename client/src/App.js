@@ -60,10 +60,10 @@ function App() {
         />
         <input type="submit" value="submit" />
       </form>
-      <div class="container">
+      <div className="container">
         {myData.map(item => (
           <div key={item._id} className="project">
-            <img src={item.image} className="image" />
+            <img src={item.image} className="image" alt="" />
             <p>
               {item.title} --> {item.description}
             </p>

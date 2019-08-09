@@ -1,17 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
+  width: 90%;
+  margin: auto;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-gap: 1em;
-  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 100px;
+  grid-gap: 20px;
 }
 
 .project {
-  /* border: 2px solid;
-  width: 25vw;
-  float: left; */
+  border: 2px solid;
+  width: 100%;
+  height: 100%;
 }
 
 .image {
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  height: 70%;
 }

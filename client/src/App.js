@@ -9,8 +9,10 @@ function App() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageURL, setImageURL] = useState("");
+  const [currentElement, setCurrentElement] = useState({});
 
   const [show, setShow] = useState(false);
+  const [showAddModal, setShowAddModal] = useState(false);
 
   useEffect(() => {
     loadItems();
@@ -41,49 +43,70 @@ function App() {
     loadItems();
   };
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleHide = () => setShow(false);
+  const handleShow = data => {
+    setShow(true);
+    setCurrentElement({
+      title: data.title,
+      description: data.description,
+      image: data.image
+    });
+    console.log(data);
+  };
+
+  const handleAddHide = () => setShowAddModal(false);
+  const handleAddShow = () => setShowAddModal(true);
 
   return (
     <div className="App">
-      <div>ReStartup</div>
+      <div className="title">ReStartup</div>
+      <button type="button" onClick={() => handleAddShow()}>
+        CLICK ME
+      </button>
 
       {/* Add option */}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          value={description}
-          onChange={e => setDescription(e.target.value)}
-        />
-        <input
-          type="url"
-          value={imageURL}
-          onChange={e => setImageURL(e.target.value)}
-        />
-        <input type="submit" value="submit" />
-      </form>
 
       {/* Model starts here */}
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleHide}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{currentElement.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleHide}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+        </Modal.Footer>
+      </Modal>
+
+      {/* Model starts here */}
+      <Modal show={showAddModal} onHide={handleAddHide}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Item</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
+            <input
+              type="text"
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+            />
+            <input
+              type="url"
+              value={imageURL}
+              onChange={e => setImageURL(e.target.value)}
+            />
+            <input type="submit" value="submit" />
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleHide}>
+            Close
           </Button>
         </Modal.Footer>
       </Modal>
@@ -91,11 +114,15 @@ function App() {
       {/* Individual containers */}
       <div className="container">
         {myData.map(item => (
-          <div key={item._id} className="project">
+          <div
+            key={item._id}
+            className="project"
+            value={item}
+            onClick={() => handleShow(item)}
+          >
             <img src={item.image} className="image" alt="" />
-            <p>
-              {item.title} --> {item.description}
-            </p>
+            <p id="title">{item.title}</p>
+            <p> {item.description}</p>
           </div>
         ))}
       </div>

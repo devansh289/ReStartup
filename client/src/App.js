@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, ButtonToolbar } from "react-bootstrap";
 import "./App.css";
 
 const axios = require("axios");
@@ -63,13 +63,18 @@ function App() {
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
-      <h1 className="title">ReStartup</h1>
-      <button type="button" onClick={() => handleAddShow()}>
-        CLICK ME
-      </button>
-
+      <div className="header">
+        <h1 className="title">ReStartup</h1>
+        <button
+          variant="btm-primary"
+          className="addButton"
+          onClick={() => handleAddShow()}
+        >
+          Add Company
+        </button>
+      </div>
       {/* Add option */}
 
       {/* Model starts here */}
@@ -87,34 +92,47 @@ function App() {
 
       {/* Model starts here */}
       <Modal show={showAddModal} onHide={handleAddHide}>
-        <Modal.Header closeButton>
+        <Modal.Header className="modalHeader" closeButton>
           <Modal.Title>Add Item</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={title}
-              onChange={e => setTitle(e.target.value)}
-            />
-            <input
-              type="text"
-              value={description}
-              onChange={e => setDescription(e.target.value)}
-            />
-            <input
-              type="url"
-              value={imageURL}
-              onChange={e => setImageURL(e.target.value)}
-            />
-            <input type="submit" value="submit" />
-          </form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleHide}>
-            Close
-          </Button>
-        </Modal.Footer>
+        <form onSubmit={handleSubmit}>
+          <Modal.Body>
+            <div>
+              Name:
+              <input
+                type="text"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+              />
+            </div>
+            <div>
+              Description:
+              <input
+                type="text"
+                value={description}
+                onChange={e => setDescription(e.target.value)}
+              />
+            </div>
+            <div>
+              Image URL:
+              <input
+                type="url"
+                value={imageURL}
+                onChange={e => setImageURL(e.target.value)}
+              />
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              type="submit"
+              value="submit"
+              variant="secondary"
+              onClick={handleHide}
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </form>
       </Modal>
 
       {/* Individual containers */}

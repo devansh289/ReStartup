@@ -59,7 +59,13 @@ function App() {
 
   return (
     <div className="App">
-      <div className="title">ReStartup</div>
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
+      <h1 className="title">ReStartup</h1>
       <button type="button" onClick={() => handleAddShow()}>
         CLICK ME
       </button>
@@ -121,8 +127,8 @@ function App() {
             onClick={() => handleShow(item)}
           >
             <img src={item.image} className="image" alt="" />
-            <p id="title">{item.title}</p>
-            <p> {item.description}</p>
+            <p className="subTitle">{item.title}</p>
+            <p className="description"> {item.description}</p>
           </div>
         ))}
       </div>

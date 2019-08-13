@@ -23,17 +23,19 @@ function App() {
       .get("/data")
       .then(response => response.data)
       .then(data => {
-        console.log(data);
         setData(data);
+        data.map(element => {});
       });
   };
+
+  const getMyData = () => {};
 
   const handleSubmit = evt => {
     evt.preventDefault();
     console.log("Submitting Data");
 
     axios
-      .post("/data", {
+      .get("/data", {
         title: title,
         description: description,
         image: imageURL
@@ -75,6 +77,7 @@ function App() {
           Add Company
         </button>
       </div>
+      <div>A place where you can buy startups.</div>
       {/* Add option */}
 
       {/* Model starts here */}
@@ -145,8 +148,9 @@ function App() {
             onClick={() => handleShow(item)}
           >
             <img src={item.image} className="image" alt="" />
-            <p className="subTitle">{item.title}</p>
+            <p className="subTitle">{item.hostname}</p>
             <p className="description"> {item.description}</p>
+            <p>$13</p>
           </div>
         ))}
       </div>

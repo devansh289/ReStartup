@@ -71,25 +71,30 @@ function App() {
 
       <div className="header">
         <h1 className="title">ReStartup</h1>
-        <button
+        {/* <button
           variant="btm-primary"
           className="addButton"
           onClick={() => handleAddShow()}
         >
           Add Company
-        </button>
+        </button> */}
       </div>
-      <div>A place where you can buy startups.</div>
+      <div className="subHeading">A place where you can buy startups.</div>
       {/* Add option */}
 
       {/* Model starts here */}
       <Modal show={show} onHide={handleHide}>
-        <Modal.Header closeButton>
-          <Modal.Title>{currentElement.title}</Modal.Title>
+        <Modal.Header className="modalHeader">
+          <Modal.Title className="modalHeaderText">
+            {currentElement.title}
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleHide}>
+        <Modal.Body>
+          <img src={currentElement.image} width="144px" height="144px" />
+          {currentElement.description}
+        </Modal.Body>
+        <Modal.Footer className="modalHeader">
+          <Button variant="light" onClick={handleHide}>
             Close
           </Button>
         </Modal.Footer>
@@ -152,7 +157,7 @@ function App() {
             <img src={item.image} className="image" alt="" />
             <p className="subTitle">{item.hostname}</p>
             <p className="description"> {item.description}</p>
-            <p>$13</p>
+            <p className="price">$13</p>
           </div>
         ))}
       </div>

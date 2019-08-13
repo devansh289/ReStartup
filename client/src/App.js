@@ -14,6 +14,7 @@ function App() {
   const [show, setShow] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
 
+  //OnLoad
   useEffect(() => {
     loadItems();
   }, []);
@@ -24,12 +25,10 @@ function App() {
       .then(response => response.data)
       .then(data => {
         setData(data);
-        data.map(element => {});
       });
   };
 
-  const getMyData = () => {};
-
+  //Sumbit data using add button
   const handleSubmit = evt => {
     evt.preventDefault();
     console.log("Submitting Data");
@@ -45,6 +44,7 @@ function App() {
     loadItems();
   };
 
+  //Modal opened onclick
   const handleHide = () => setShow(false);
   const handleShow = data => {
     setShow(true);
@@ -56,6 +56,7 @@ function App() {
     console.log(data);
   };
 
+  //Add item modal open
   const handleAddHide = () => setShowAddModal(false);
   const handleAddShow = () => setShowAddModal(true);
 
@@ -67,6 +68,7 @@ function App() {
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossOrigin="anonymous"
       />
+
       <div className="header">
         <h1 className="title">ReStartup</h1>
         <button

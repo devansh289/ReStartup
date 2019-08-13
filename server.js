@@ -42,10 +42,11 @@ app.get("/newData", (req, res) => {
       .then(response => {
         response.data.data.map(item => {
           collection.insertOne({
-            title: item.title,
-            description: item.description,
+            title: item.hostname,
+            description: item.summary,
             image: item.images.thumbnail.url,
-            price: item.buy_it_now_price
+            price: item.buy_it_now_price,
+            url: item.external_url
           });
         });
       })

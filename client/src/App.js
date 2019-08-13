@@ -53,7 +53,9 @@ function App() {
     setCurrentElement({
       title: data.title,
       description: data.description,
-      image: data.image
+      image: data.image,
+      price: data.price,
+      url: data.url
     });
     console.log(data);
   };
@@ -93,7 +95,19 @@ function App() {
         </Modal.Header>
         <Modal.Body className="modalBody">
           <img src={currentElement.image} width="144px" height="144px" />
-          {currentElement.description}
+          <div>
+            {currentElement.description}
+            {console.log(currentElement)}
+            <div className="viewSite">
+              <Button
+                variant="success"
+                target="/blank"
+                href={currentElement.url}
+              >
+                View Site
+              </Button>
+            </div>
+          </div>
         </Modal.Body>
         <Modal.Footer className="modalHeader">
           <Button variant="light" onClick={handleHide}>

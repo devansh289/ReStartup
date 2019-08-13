@@ -112,6 +112,12 @@
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-gap: 10px;
+  font-size: 0.8em;
+  text-align: center;
   color: black;
   background-color: var(--third);
+}
+
+.viewSite {
+  gap: 10px;
 }

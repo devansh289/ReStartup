@@ -34,8 +34,8 @@ app.get("/newData", (req, res) => {
     console.log("CONNNECTED");
     const db = client.db("userData");
     let collection = db.collection("userData");
-    collection.remove();
-    collection = db.collection("userData");
+    // collection.remove();
+    // collection = db.collection("userData");
     axios(
       "https://api.flippa.com/v3/listings?has_bin=true&broker_seller=true&category=automotive"
     )

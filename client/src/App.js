@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, ButtonToolbar } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import "./App.css";
 
 const axios = require("axios");
@@ -26,6 +26,8 @@ function App() {
       .then(data => {
         setData(data);
       });
+
+    // axios.get("/newData");
   };
 
   //Sumbit data using add button
@@ -89,7 +91,7 @@ function App() {
             {currentElement.title}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modalBody">
           <img src={currentElement.image} width="144px" height="144px" />
           {currentElement.description}
         </Modal.Body>
@@ -152,12 +154,15 @@ function App() {
             key={item._id}
             className="project"
             value={item}
-            onClick={() => handleShow(item)}
+            onClick={() => {
+              handleShow(item);
+            }}
           >
             <img src={item.image} className="image" alt="" />
-            <p className="subTitle">{item.hostname}</p>
-            <p className="description"> {item.description}</p>
-            <p className="price">$13</p>
+            <p className="subTitle">{item.title}</p>
+            <p className="price">
+              {item.price !== null ? `USD $${item.price}` : "Please Contact"}
+            </p>
           </div>
         ))}
       </div>

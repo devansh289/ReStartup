@@ -36,9 +36,7 @@ app.get("/newData", (req, res) => {
     let collection = db.collection("userData");
     // collection.remove();
     // collection = db.collection("userData");
-    axios(
-      "https://api.flippa.com/v3/listings?has_bin=true&broker_seller=true&category=automotive"
-    )
+    axios("https://api.flippa.com/v3/listings?has_bin=true")
       .then(response => {
         response.data.data.map(item => {
           collection.insertOne({

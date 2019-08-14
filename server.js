@@ -4,7 +4,7 @@ const axios = require("axios");
 const path = require("path");
 var bodyParser = require("body-parser");
 const app = express();
-const PORT = 3003;
+const PORT = process.env.PORT || 3003;
 
 const url = "mongodb://localhost:27017";
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -6,6 +6,9 @@ A platform where you buy or sell different startups.
 * [React Bootstrap](https://react-bootstrap.github.io/) 
 * [Flippa API](https://developers.flippa.com/) 
 
+## Deployment
+Deployed using [Heroku](https://www.heroku.com/)
+
 ## Authors
  **Devansh Sharma**  - [Website](http://devansh-sharma.me)
  

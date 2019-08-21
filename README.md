@@ -1,4 +1,4 @@
-[![Repo Size](https://img.shields.io/github/repo-size/devansh289/restartup)]
+![Repo Size](https://img.shields.io/github/repo-size/devansh289/restartup)
 
 # ReStartup
 A platform where you buy or sell different startups.

@@ -1,10 +1,14 @@
-# ReStartup | Under Construction <img width="45" alt="schermafbeelding 2017-09-27 om 23 08 12" src="https://user-images.githubusercontent.com/7254997/30937972-c9632d04-a3d8-11e7-87f3-c44ce2b86d24.png">
-
+# ReStartup
 A platform where you buy or sell different startups.
+
+## Built With
+
+* [React Bootstrap](https://react-bootstrap.github.io/) 
+* [Flippa API](https://developers.flippa.com/) 
 
 ## Authors
  **Devansh Sharma**  - [Website](http://devansh-sharma.me)
  
- ## License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details

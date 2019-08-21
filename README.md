@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/github/license/devansh289/restartup)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://restartup.ml)
 
-# ReStartup
+# [ReStartup](http://restartup.ml)
 A platform where you buy or sell different startups.
 
 ## Built With

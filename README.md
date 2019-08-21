@@ -2,4 +2,7 @@
 
 A platform where you buy or sell different startups.
 
+## Authors
+ **Devansh Sharma**  - [Website](http://devansh-sharma.me)
 Stay tuned for further updates :))
+

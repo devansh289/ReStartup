@@ -8,7 +8,8 @@ A platform where you buy or sell different startups.
 
 ## Built With
 
-* [IBM Watson](https://www.ibm.com/watson/developer) 
+* [React Bootstrap](https://react-bootstrap.github.io/) 
+* [Flippa API](https://developers.flippa.com/) 
 
 ## Deployment
 Deployed using [Heroku](https://www.heroku.com/)

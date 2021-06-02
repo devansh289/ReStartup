@@ -15,7 +15,7 @@ A platform where you buy or sell different startups.
 Deployed using [Heroku](https://www.heroku.com/)
 
 ## Authors
- **Devansh Sharma**  - [Website](http://devansh-sharma.me)
+ **Devansh Sharma** 
  
 ## License
 
